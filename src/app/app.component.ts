@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss', './shared/directives/directives.scss']
 })
 export class AppComponent {
   title = 'todo-list-telegram';

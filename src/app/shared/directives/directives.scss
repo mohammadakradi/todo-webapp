@@ -1,0 +1,47 @@
+button{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    &:active{
+        scale: 0.97;
+    }
+}
+
+[appAddButton] {
+    background-color: #8875FF;
+    border: 1px solid #8875FF;
+    border-radius: 100%;
+    color: white;
+}
+
+[appSubmitButton] {
+    background-color: #8875FF;
+    border: 1px solid #8875FF;
+    color: white;
+    height: 3rem;
+    width: 80%;
+}
+
+[appCancelButton] {
+    background-color: transparent;
+    color: #8875FF;
+    height: 3rem;
+    width: 80%;
+}
+
+[appRegularButton]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: transparent;
+    border: 1px solid #8875FF;
+    color: white;
+    height: 3rem;
+    width: 80%;
+    img{
+        height: 100%;
+    }
+}
