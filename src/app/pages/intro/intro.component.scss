@@ -1,0 +1,17 @@
+.intro{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+    & app-stepper-controller{
+        // flex: 1;
+        // margin-bottom: 30px;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+    }
+}

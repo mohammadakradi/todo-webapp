@@ -1,5 +1,5 @@
 <div class="stepper-controller">
-    <button appBackButton>Back</button>
-    <app-stepper></app-stepper>
-    <button appNextButton>Next</button>
+    <button (click)="updateActiveStep('back')" appBackButton>Back</button>
+    <app-stepper [activeStep]="activeStep"></app-stepper>
+    <button (click)="updateActiveStep('next')" appNextButton>Next</button>
 </div>

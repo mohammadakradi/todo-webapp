@@ -1,7 +1,7 @@
 <div class="stepper">
     @for (step of stepps; track step; let index = $index){
-    @if (index != 0 && index < 4){ <div class="step"
-        [ngClass]="{'active-step': activeStep +1 == index, '!border-[#4F46E5]': activeStep >= index}">
+    @if (index < 5){ <div class="step"
+        [ngClass]="{'active-step': activeStep == index}">
 </div>
 }
     }
