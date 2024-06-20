@@ -1,4 +1,4 @@
-<div class="w-full h-14 flex m-4 items-center">
+<div class="stepper">
     @for (step of stepps; track step; let index = $index){
     @if (index != 0 && index < 4){ <div class="step"
         [ngClass]="{'active-step': activeStep +1 == index, '!border-[#4F46E5]': activeStep >= index}">

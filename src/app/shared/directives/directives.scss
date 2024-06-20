@@ -1,3 +1,5 @@
+$btn-bg-color: #8875FF;
+
 button{
     padding: 10px 15px;
     border-radius: 5px;
@@ -5,20 +7,20 @@ button{
     cursor: pointer;
     margin: 5px;
     &:active{
-        scale: 0.97;
+        scale: 0.98;
     }
 }
 
 [appAddButton] {
-    background-color: #8875FF;
-    border: 1px solid #8875FF;
+    background-color: $btn-bg-color;
+    border: 1px solid $btn-bg-color;
     border-radius: 100%;
     color: white;
 }
 
-[appSubmitButton] {
-    background-color: #8875FF;
-    border: 1px solid #8875FF;
+[appActionButton] {
+    background-color: $btn-bg-color;
+    border: 1px solid $btn-bg-color;
     color: white;
     height: 3rem;
     width: 80%;
@@ -26,7 +28,21 @@ button{
 
 [appCancelButton] {
     background-color: transparent;
-    color: #8875FF;
+    color: $btn-bg-color;
+    height: 3rem;
+    width: 80%;
+}
+
+[appNextButton] {
+    background-color: transparent;
+    color: $btn-bg-color;
+    height: 3rem;
+    width: 80%;
+}
+
+[appBackButton] {
+    background-color: transparent;
+    color: #b6b6b6;
     height: 3rem;
     width: 80%;
 }
@@ -37,7 +53,7 @@ button{
     align-items: center;
     gap: 15px;
     background-color: transparent;
-    border: 1px solid #8875FF;
+    border: 1px solid $btn-bg-color;
     color: white;
     height: 3rem;
     width: 80%;

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   ],
   standalone: true,
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.css']
+  styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent implements OnInit {
   @Input() activeStep!: number;
@@ -22,6 +22,9 @@ export class StepperComponent implements OnInit {
     },
     {
       title: 'Step 3',
+    },
+    {
+      title: 'Step 4',
     }
   ];
 

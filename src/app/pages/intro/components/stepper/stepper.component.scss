@@ -1,8 +1,16 @@
+$primary-color: #4F46E5;
+
+.stepper{
+    display: flex;
+    gap: 10px;
+}
+
 .step{
-    width: 25px;
-    height: 4px;
-    background-color: #4F46E5;
-    opacity: 70%;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background-color: $primary-color;
+    opacity: 60%;
 }
 
 .active-step{
