@@ -7,6 +7,11 @@
     align-items: center;
     position: relative;
 
+    & app-step-content{
+        // flex: 1;
+        padding: 40px;
+    }
+
     & app-stepper-controller{
         // flex: 1;
         // margin-bottom: 30px;

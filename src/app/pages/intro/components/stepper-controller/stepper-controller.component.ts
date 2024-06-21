@@ -21,10 +21,14 @@ export class StepperControllerComponent {
         this.activeStep > 0 ? this.activeStep = this.activeStep - 1 : this.activeStep = this.activeStep;
         break;
       case "next":
-        this.activeStep < 3 ? this.activeStep = this.activeStep + 1 : this.activeStep = this.activeStep;
+        this.activeStep < 4 ? this.activeStep = this.activeStep + 1 : this.activeStep = this.activeStep;
         break;
     }
 
     this.changeStep.emit(this.activeStep)
+  }
+
+  startApp() {
+    this.changeStep.emit(4)
   }
 }

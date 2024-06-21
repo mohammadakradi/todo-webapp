@@ -22,6 +22,9 @@ export class IntroComponent implements OnInit {
   }
 
   updateActiveStep(e: number) {
+    if (e == 4) {
+      console.log("Start App ...")
+    }
     this.activeStep = e;
   }
 

@@ -1,4 +1,4 @@
-$btn-bg-color: #8875FF;
+$btn-bg-color: #C9A1C3;
 
 button{
     padding: 10px 15px;
@@ -6,6 +6,12 @@ button{
     border: none;
     cursor: pointer;
     margin: 5px;
+    color: black;
+    // height: 3rem;
+    // width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:active{
         scale: 0.98;
     }
@@ -15,37 +21,27 @@ button{
     background-color: $btn-bg-color;
     border: 1px solid $btn-bg-color;
     border-radius: 100%;
-    color: white;
 }
 
 [appActionButton] {
     background-color: $btn-bg-color;
     border: 1px solid $btn-bg-color;
-    color: white;
-    height: 3rem;
-    width: 80%;
 }
 
 [appCancelButton] {
     background-color: transparent;
     color: $btn-bg-color;
-    height: 3rem;
-    width: 80%;
 }
 
 [appNextButton] {
     background-color: transparent;
     color: $btn-bg-color;
-    height: 3rem;
-    width: 80%;
 }
 
 [appBackButton] {
     background-color: transparent;
     color: #fff;
     opacity: 70%;
-    height: 3rem;
-    width: 80%;
 }
 
 [appRegularButton]{
@@ -56,8 +52,6 @@ button{
     background-color: transparent;
     border: 1px solid $btn-bg-color;
     color: white;
-    height: 3rem;
-    width: 80%;
     img{
         height: 100%;
     }
