@@ -3,6 +3,7 @@ import { StepperComponent } from './components/stepper/stepper.component';
 import { StepperControllerComponent } from './components/stepper-controller/stepper-controller.component';
 import { StepContentComponent } from './components/step-content/step-content.component';
 import { IStepContent } from './models/stepper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -44,14 +45,16 @@ export class IntroComponent implements OnInit {
       image: "../../assets/images/Saly-15.svg"
     },
   ]
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   updateActiveStep(activeStep: number) {
-    if (activeStep == 4) {
-      console.log("Start App ...")
+    if (activeStep === -1) {
+      this.router.navigateByUrl('index')
     }
     this.activeStep = activeStep;
   }

@@ -1,4 +1,4 @@
-$btn-bg-color: #C9A1C3;
+$btn-bg-color: #A7A7C9;
 
 button{
     padding: 10px 15px;
@@ -19,8 +19,9 @@ button{
 
 .add-btn {
     background-color: $btn-bg-color;
-    border: 1px solid $btn-bg-color;
+    border: 6px solid $btn-bg-color;
     border-radius: 100%;
+    font-size: larger;
 }
 
 .action-btn {

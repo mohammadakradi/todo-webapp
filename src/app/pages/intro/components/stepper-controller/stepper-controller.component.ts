@@ -31,7 +31,7 @@ export class StepperControllerComponent {
   }
 
   startApp() {
-    this.changeStep.emit(4)
+    this.changeStep.emit(-1)
   }
 
 }
