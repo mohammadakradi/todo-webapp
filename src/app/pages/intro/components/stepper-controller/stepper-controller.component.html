@@ -1,10 +1,10 @@
 <div class="stepper-controller">
-    @if (activeStep <= 3){
-        <button (click)="updateActiveStep('back')" appBackButton>Back</button>
-        <app-stepper [activeStep]="activeStep"></app-stepper>
-        <button (click)="updateActiveStep('next')" appNextButton>Next</button>
+    @if (activeStep < stepContents.length - 1){
+        <button (click)="updateActiveStep('back')" class="back-btn">Back</button>
+        <app-stepper [activeStep]="activeStep" [stepContents]="stepContents"></app-stepper>
+        <button (click)="updateActiveStep('next')" class="next-btn">Next</button>
     }
     @else {
-        <button appActionButton (click)="startApp">START</button>
+        <button class="action-btn" (click)="startApp">START</button>
     }
 </div>

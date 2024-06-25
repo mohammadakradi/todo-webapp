@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { StepperComponent } from '../stepper/stepper.component';
+import { IStepContent } from '../../models/stepper';
 
 @Component({
   selector: 'app-stepper-controller',
@@ -8,10 +9,11 @@ import { StepperComponent } from '../stepper/stepper.component';
     StepperComponent,
   ],
   templateUrl: './stepper-controller.component.html',
-  styleUrls: ['./stepper-controller.component.scss', '../../../../shared/directives/directives.scss']
+  styleUrls: ['./stepper-controller.component.scss']
 })
 export class StepperControllerComponent {
   @Input({ required: true }) activeStep!: number;
+  @Input() stepContents: IStepContent[] = [];
 
   @Output() changeStep: EventEmitter<number> = new EventEmitter<number>();
 
@@ -31,4 +33,5 @@ export class StepperControllerComponent {
   startApp() {
     this.changeStep.emit(4)
   }
+
 }

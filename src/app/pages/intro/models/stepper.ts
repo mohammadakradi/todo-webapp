@@ -4,3 +4,9 @@ export interface IStepper {
     description?: string;
     icon?: string;
 }
+
+export interface IStepContent {
+    title: string;
+    subtitle: string;
+    image: string
+}

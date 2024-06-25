@@ -1,29 +1,9 @@
-<div class="step-content">
-        @switch (activeStep) {
-        @case (0) {
-            <img src="../../assets/images/Saly-26.svg" alt="step-photo"/>
-            <h4>Manage Your Tasks</h4>
-            <p>Manage your daily tasks for free in To Do</p>
-        }
-        @case (1) {
-            <img src="../../assets/images/Saly-19.svg" alt="step-photo"/>
-            <h4>Create Routines</h4>
-            <p>Change your tasks to daily routines</p>
-        }
-        @case(2){
-            <img src="../../assets/images/Saly-42.svg" alt="step-photo"/>
-            <h4>Notify Yourself</h4>
-            <p>Set calendar and alarms for your daily tasks</p>
-        }
-        @case (3) {
-            <img src="../../assets/images/Saly-31.svg" alt="step-photo"/>
-            <h4>Share Your List</h4>
-            <p>Share your to do list to stay on track</p>
-        }
-        @case (4) {
-            <h4>Welcome to ToDo</h4>
-            <p>Get Things Done With ToDo</p>
-            <img src="../../assets/images/Saly-15.svg" alt="step-photo"/>
-        }
-        }
-      </div>
+@for(stepContent of stepContents; track stepContent; let index = $index){
+    @if(index == activeStep){
+        <div class="step-content">
+            <img src={{stepContent.image}} [ngClass]="{'img-order': activeStep === stepContents.length - 1}"/>
+            <h4>{{stepContent.title}}</h4>
+            <p>{{stepContent.subtitle}}</p>
+        </div>
+    }
+}

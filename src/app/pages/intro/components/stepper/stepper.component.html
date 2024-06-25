@@ -1,6 +1,6 @@
 <div class="stepper">
-    @for (step of stepps; track step; let index = $index){
-    @if (index < 5){ <div class="step"
+    @for (step of stepContents; track step; let index = $index){
+    @if (index < stepContents.length - 1){ <div class="step"
         [ngClass]="{'active-step': activeStep == index}">
 </div>
 }

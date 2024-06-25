@@ -1,4 +1,4 @@
 <div class="intro">
-  <app-step-content [activeStep]="activeStep"></app-step-content>
-  <app-stepper-controller [activeStep]="activeStep" (changeStep)="updateActiveStep($event)" class="stepper-controller"></app-stepper-controller>
+  <app-step-content [stepContents]="stepContents" [activeStep]="activeStep"></app-step-content>
+  <app-stepper-controller [activeStep]="activeStep" [stepContents]="stepContents" (changeStep)="updateActiveStep($event)" class="stepper-controller"></app-stepper-controller>
 </div>

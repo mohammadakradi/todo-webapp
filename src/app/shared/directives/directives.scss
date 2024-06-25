@@ -17,34 +17,34 @@ button{
     }
 }
 
-[appAddButton] {
+.add-btn {
     background-color: $btn-bg-color;
     border: 1px solid $btn-bg-color;
     border-radius: 100%;
 }
 
-[appActionButton] {
+.action-btn {
     background-color: $btn-bg-color;
     border: 1px solid $btn-bg-color;
 }
 
-[appCancelButton] {
+.cancel-btn {
     background-color: transparent;
     color: $btn-bg-color;
 }
 
-[appNextButton] {
+.next-btn {
     background-color: transparent;
     color: $btn-bg-color;
 }
 
-[appBackButton] {
+.back-btn {
     background-color: transparent;
     color: #fff;
     opacity: 70%;
 }
 
-[appRegularButton]{
+.regular-btn {
     display: flex;
     justify-content: center;
     align-items: center;
