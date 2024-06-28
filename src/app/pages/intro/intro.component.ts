@@ -54,7 +54,7 @@ export class IntroComponent implements OnInit {
 
   updateActiveStep(activeStep: number) {
     if (activeStep === -1) {
-      this.router.navigateByUrl('index')
+      this.router.navigateByUrl('')
     }
     this.activeStep = activeStep;
   }

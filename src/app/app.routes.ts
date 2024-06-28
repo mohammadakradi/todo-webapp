@@ -1,15 +1,13 @@
 import { Routes } from '@angular/router';
-import { IntroComponent } from './pages/intro/intro.component';
-import { IndexComponent } from './pages/index/index.component';
 
 export const routes: Routes = [
     {
-        path: 'intro',
-        component: IntroComponent
+        path: '',
+        loadComponent: () => import('../app/pages/home/home.component').then(c => c.HomeComponent)
     },
     {
-        path: 'index',
-        component: IndexComponent
+        path: 'intro',
+        loadComponent: () => import('../app/pages/intro/intro.component').then(c => c.IntroComponent)
     },
     // {
     //     path: 'todo-list',
@@ -19,9 +17,9 @@ export const routes: Routes = [
     //     path: 'dashboard',
     //     loadChildren: () => import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule)
     // },
-    {
-        path: '',
-        redirectTo: 'index',
-        pathMatch: 'full'
-    }
+    // {
+    //     path: '',
+    //     redirectTo: 'index',
+    //     pathMatch: 'full'
+    // }
 ];
