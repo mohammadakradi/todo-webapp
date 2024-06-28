@@ -24,7 +24,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.log(event.url);
         if (event.url !== "/intro") {
           this.isIntro = false
         }
