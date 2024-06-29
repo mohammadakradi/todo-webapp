@@ -22,8 +22,10 @@ button{
     border: 6px solid $btn-bg-color;
     border-radius: 100%;
     font-size: larger;
+    margin: 0;
+    width: 62px;
+    height: 62px;
 }
-
 .action-btn {
     background-color: $btn-bg-color;
     border: 1px solid $btn-bg-color;

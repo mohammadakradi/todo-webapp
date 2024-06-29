@@ -24,32 +24,40 @@
 }
 
 .controller-add{
-    // margin-bottom: 25%;
-    // background-color: #A7A7C9;
-    position: absolute;
-    top: -5dvh;
-    border: 6px solid #22223B;
+    height: 62px;
+    width: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -5.7dvh;
+    border: 10px solid #22223B;
     border-radius: 100%;
+    & span{
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: #22223B;
+    }
 }
 .controller-add::before{
-    height: 2dvh;
+    height: 2.5dvh;
     width: 5dvw;
     background-color: #494968;
     position: absolute;
-    top: 4.3dvh;
-    left: -5.5dvw;
+    top: 4.2dvh;
+    left: -7dvw;
     content: "";
-    border-top-right-radius: 10dvw;
-    box-shadow: 0px -8px 0 0 #22223B;
+    border-top-right-radius: 100dvw;
+    box-shadow: 3px -3px 0 2px #22223B;
 }
 .controller-add::after{
-    height: 2dvh;
+    height: 2.5dvh;
     width: 5dvw;
     background-color: #494968;
     position: absolute;
-    top: 4.3dvh;
-    right: -5.4dvw;
+    top: 4.2dvh;
+    right: -7dvw;
     content: "";
-    border-top-left-radius: 10dvw;
-    box-shadow: 0px -8px 0 0 #22223B;
+    border-top-left-radius: 100dvw;
+    box-shadow: -3px -6px 0 -1px #22223B;
 }
