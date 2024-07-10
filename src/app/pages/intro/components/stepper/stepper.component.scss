@@ -1,4 +1,4 @@
-$primary-color: #C9A1C3;
+@import '../../../../../theme.scss';
 
 .stepper{
     display: flex;
@@ -9,10 +9,9 @@ $primary-color: #C9A1C3;
     width: 6px;
     height: 6px;
     border-radius: 100%;
-    background-color: $primary-color;
-    opacity: 30%;
+    background-color: $secondary-color;
 }
 
 .active-step{
-    opacity: 100%;
+    background-color: $secondary-text-color;
 }

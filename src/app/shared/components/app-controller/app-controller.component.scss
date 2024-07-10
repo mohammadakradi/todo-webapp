@@ -1,3 +1,5 @@
+@import '../../../../theme.scss';
+
 .controller-item{
     display: flex;
     flex-direction: column;
@@ -12,28 +14,28 @@
     // background-color: #A7A7C9;
     position: absolute;
     top: -50%;
-    border: 6px solid #22223B;
+    border: 6px solid $primary-color;
     border-radius: 100%;
 }
 .controller-add::before{
     height: 20px;
     width: 20px;
-    background-color: #494968;
+    background-color: $secondary-color;
     position: absolute;
     top: 50%;
     left: -22px;
     content: '';
     border-top-right-radius: 20px;
-    box-shadow: 0px -10px 0 0 #22223B;
+    box-shadow: 0px -10px 0 0 $primary-color;
 }
 .controller-add::after{
     height: 20px;
     width: 20px;
-    background-color: #494968;
+    background-color: $secondary-color;
     position: absolute;
     top: 50%;
     right: -22px;
     content: '';
     border-top-left-radius: 20px;
-    box-shadow: 0px -10px 0 0 #22223B;
+    box-shadow: 0px -10px 0 0 $primary-color;
 }

@@ -1,5 +1,6 @@
+@import '../theme.scss';
 .app-controller{
-    background-color: #494968;
+    background-color: $secondary-color;
     width: 90%;
     height: 10%;
     display: flex;

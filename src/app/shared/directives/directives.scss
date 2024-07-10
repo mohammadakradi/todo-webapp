@@ -1,4 +1,4 @@
-$btn-bg-color: #A7A7C9;
+@import '../../../theme.scss';
 
 button{
     padding: 10px 15px;
@@ -18,25 +18,25 @@ button{
 }
 
 .add-btn {
-    background-color: $btn-bg-color;
-    border: 6px solid $btn-bg-color;
+    background-color: $secondary-text-color;
+    border: 6px solid $secondary-text-color;
     border-radius: 100%;
     font-size: larger;
 }
 
 .action-btn {
-    background-color: $btn-bg-color;
-    border: 1px solid $btn-bg-color;
+    background-color: $secondary-text-color;
+    border: 1px solid $secondary-text-color;
 }
 
 .cancel-btn {
     background-color: transparent;
-    color: $btn-bg-color;
+    color: $secondary-text-color;
 }
 
 .next-btn {
     background-color: transparent;
-    color: $btn-bg-color;
+    color: $secondary-text-color;
 }
 
 .back-btn {
@@ -51,8 +51,8 @@ button{
     align-items: center;
     gap: 15px;
     background-color: transparent;
-    border: 1px solid $btn-bg-color;
-    color: white;
+    border: 1px solid $secondary-text-color;
+    color: #fff;
     img{
         height: 100%;
     }
