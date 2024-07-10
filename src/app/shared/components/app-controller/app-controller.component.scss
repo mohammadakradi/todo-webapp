@@ -30,8 +30,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    top: -5.7dvh;
-    border: 10px solid #22223B;
+    top: -7dvh;
+    border: 5px solid #22223B;
     border-radius: 100%;
     & span{
         font-size: 1.5rem;
@@ -42,23 +42,23 @@
 }
 .controller-add::before{
     height: 2.5dvh;
-    width: 5dvw;
+    width: 4.9dvw;
     background-color: #494968;
     position: absolute;
-    top: 4.2dvh;
-    left: -7.2dvw;
+    top: 6.25dvh;
+    left: -4.3dvw;
     content: "";
     border-top-right-radius: 100dvw;
-    box-shadow: 3px -5px 0 0 #22223B;
+    box-shadow: 1px -5px 0 -3px #22223B;
 }
 .controller-add::after{
     height: 2.5dvh;
-    width: 5dvw;
+    width: 4.9dvw;
     background-color: #494968;
     position: absolute;
-    top: 4.2dvh;
-    right: -7.2dvw;
+    top: 6.25dvh;
+    right: -4.3dvw;
     content: "";
     border-top-left-radius: 100dvw;
-    box-shadow: -3px -6px 0 0 #22223B;
+    box-shadow: 1px -8px 0 -2px #22223B;
 }
