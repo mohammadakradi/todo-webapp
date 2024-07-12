@@ -1,0 +1,18 @@
+
+    <div>
+        @if (selectedHourIndex == 1){
+            {{hours[12]}}
+        } @else {
+            {{hours[selectedHourIndex - 1]}}
+        }
+    </div>
+    <div (change)="onChange($event)" (wheel)="changeHour($event)">
+        {{selectedHour}}
+    </div>
+    <div>
+        @if (selectedHourIndex == 12){
+            {{hours[1]}}
+        } @else {
+            {{hours[selectedHourIndex + 1]}}
+        }
+    </div>
