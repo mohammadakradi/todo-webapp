@@ -1,14 +1,24 @@
-.hour-display-container {
-  width: 100px;
-  height: 50px;
-  border: 1px solid #ccc;
+.timepicker{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  gap: 10px;
 }
 
-.hour-display {
-  font-size: 24px;
-  user-select: none;
+.selected-time{
+border-bottom: 1px solid white;
+border-top: 1px solid white;
+padding: 4px 10px;
+}
+
+.unselected-time{
+  color: #8B8B99;
+}
+
+.hour, .minute{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & div{
+    margin: 2px 0;
+  }
 }
