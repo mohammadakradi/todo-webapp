@@ -1,11 +1,14 @@
 import { Component, HostListener } from '@angular/core';
+import { DisplayTimePipe } from '../../pipes/display-time.pipe';
 
 @Component({
   selector: 'app-timepicker',
   standalone: true,
-  imports: [],
+  imports: [
+    DisplayTimePipe
+  ],
   templateUrl: './timepicker.component.html',
-  styleUrl: './timepicker.component.scss'
+  styleUrl: './timepicker.component.scss',
 })
 export class TimepickerComponent {
   hours: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
@@ -16,18 +19,6 @@ export class TimepickerComponent {
   selectedMinute: number = 30;
   selectedMinuteIndex: number = this.minutes.indexOf(this.selectedMinute);
 
-  // @HostListener('wheel', ['event'])
-  // changeHour(e: any) {
-  //   console.log(e)
-  //   if (this.selectedHour + e.deltaY < 1) {
-  //     this.selectedHour = 12
-  //   } else if (this.selectedHour + e.deltaY > 12) {
-  //     this.selectedHour = 1
-  //   } else {
-  //     this.selectedHour += e.deltaY
-  //   }
-  //   this.selectedHourIndex = this.hours.indexOf(this.selectedHour)
-  // }
   onChange(hour: any) {
     console.log(hour)
   }

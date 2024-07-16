@@ -1,41 +1,43 @@
 <div class="timepicker">
-
     <div class="hour">
         <div>
-            @if (selectedHourIndex == 0){
-                <span class="unselected-time">{{hours[11]}}</span>
-            } @else {
-                <span class="unselected-time">{{hours[selectedHourIndex - 1]}}</span>
-            }
+            <span class="unselected-time">
+                {{ selectedHourIndex == 0 ? hours[11] : hours[selectedHourIndex - 1] }}
+            </span>
         </div>
-        <div (change)="onChange($event)" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" class="selected-time">
-            <span>{{selectedHour}}</span>
+        <div
+            (change)="onChange($event)"
+            (touchstart)="onTouchStart($event)"
+            (touchend)="onTouchEnd($event)"
+            class="selected-time"
+        >
+            <span>{{ selectedHour }}</span>
         </div>
         <div>
-            @if (selectedHourIndex + 1 == 12){
-                <span class="unselected-time">{{hours[0]}}</span>
-            } @else {
-                <span class="unselected-time">{{hours[selectedHourIndex + 1]}}</span>
-            }
+            <span class="unselected-time">
+                {{ selectedHourIndex + 1 == 12 ? hours[0] : hours[selectedHourIndex + 1] }}
+            </span>
         </div>
     </div>
-    <div class="minute">
+
+   <div class="minute">
         <div>
-            @if (selectedMinuteIndex == 0){
-                <span class="unselected-time">{{minutes[11]}}</span>
-            } @else {
-                <span class="unselected-time">{{minutes[selectedMinuteIndex - 1]}}</span>
-            }
+            <span class="unselected-time">
+                {{ selectedMinuteIndex == 0 ? (minutes[11] | displayTime) : minutes[selectedMinuteIndex - 1] | displayTime }}
+            </span>
         </div>
-        <div (change)="onChange($event)" (touchstart)="onTouchStartMinute($event)" (touchend)="onTouchEndMinute($event)" class="selected-time">
-            <span>{{selectedMinute}}</span>
+        <div
+            (change)="onChange($event)"
+            (touchstart)="onTouchStartMinute($event)"
+            (touchend)="onTouchEndMinute($event)"
+            class="selected-time"
+        >
+            <span>{{ selectedMinute | displayTime }}</span>
         </div>
         <div>
-            @if (selectedHourIndex + 1 == 12){
-                <span class="unselected-time">{{minutes[0]}}</span>
-            } @else {
-                <span class="unselected-time">{{minutes[selectedMinuteIndex + 1]}}</span>
-            }
+            <span class="unselected-time">
+                {{ selectedMinuteIndex + 1 == 12 ? (minutes[0] | displayTime) : minutes[selectedMinuteIndex + 1] | displayTime }}
+            </span>
         </div>
     </div>
 </div>

@@ -1,24 +1,37 @@
 .timepicker{
   display: flex;
   gap: 10px;
+  background-color: #A7A7C9;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .selected-time{
-border-bottom: 1px solid white;
-border-top: 1px solid white;
+  background-color: transparent;
+border-bottom: 2px solid white;
+border-top: 2px solid white;
 padding: 4px 10px;
 }
 
 .unselected-time{
+  background-color: transparent;
   color: #8B8B99;
 }
 
 .hour, .minute{
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   & div{
+    background-color: transparent;
     margin: 2px 0;
   }
+  transition: all 0.3s ease;
+}
+
+span{
+  background-color: transparent;
+  font-size: larger;
 }
