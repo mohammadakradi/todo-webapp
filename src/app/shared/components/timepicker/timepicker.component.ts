@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { DisplayTimePipe } from '../../pipes/display-time.pipe';
 
 @Component({
@@ -11,6 +11,7 @@ import { DisplayTimePipe } from '../../pipes/display-time.pipe';
   styleUrl: './timepicker.component.scss',
 })
 export class TimepickerComponent {
+  @Output() selectedTime = new EventEmitter<{ hour: number, minute: number, dayShift: string }>();
   hours: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
   initialY: number = 0;
   selectedHour: number = 6;
@@ -18,8 +19,13 @@ export class TimepickerComponent {
   minutes: number[] = Array.from({ length: 13 }, (_, i) => i * 5);
   selectedMinute: number = 30;
   selectedMinuteIndex: number = this.minutes.indexOf(this.selectedMinute);
+  dayShifts: string[] = ["AM", "PM"]
+  selectedDayShift: string = "PM"
 
   onChange(hour: any) {
+    console.log(hour)
+  }
+  onChangeHour(hour: any) {
     console.log(hour)
   }
 
@@ -35,8 +41,6 @@ export class TimepickerComponent {
     const finalY = event.changedTouches[0].clientY;
     const deltaY = this.initialY - finalY > 0 ? 1 : -1;
 
-    // console.log('fdfdf', this.initialY, finalY, deltaY)
-    // this.selectedHour += deltaY;
     if (this.selectedHour + deltaY < 1) {
       this.selectedHour = 12
     } else if (this.selectedHour + deltaY > 12) {
@@ -45,6 +49,7 @@ export class TimepickerComponent {
       this.selectedHour += deltaY
     }
     this.selectedHourIndex = this.hours.indexOf(this.selectedHour)
+    this.selectedTime.emit({ hour: this.selectedHour, minute: this.selectedMinute, dayShift: this.selectedDayShift })
   }
 
   onTouchStartMinute(event: TouchEvent): void {
@@ -59,8 +64,6 @@ export class TimepickerComponent {
     const finalY = event.changedTouches[0].clientY;
     const deltaY = this.initialY - finalY > 0 ? 5 : -5;
 
-    // console.log('fdfdf', this.initialY, finalY, deltaY)
-    // this.selectedHour += deltaY;
     if (this.selectedMinute + deltaY < 0) {
       this.selectedMinute = 55
     } else if (this.selectedMinute + deltaY > 55) {
@@ -69,5 +72,26 @@ export class TimepickerComponent {
       this.selectedMinute += deltaY
     }
     this.selectedMinuteIndex = this.minutes.indexOf(this.selectedMinute)
+    this.selectedTime.emit({ hour: this.selectedHour, minute: this.selectedMinute, dayShift: this.selectedDayShift })
+  }
+
+  onTouchStartDayShift(event: TouchEvent): void {
+    event.stopPropagation();
+    event.preventDefault();
+    this.initialY = event.touches[0].clientY;
+  }
+
+  onTouchEndDayShift(event: TouchEvent): void {
+    event.stopPropagation();
+    event.preventDefault();
+    const finalY = event.changedTouches[0].clientY;
+    const deltaY = this.initialY - finalY > 0 ? 1 : -1;
+
+    if (this.selectedDayShift == "AM" && deltaY == 1) {
+      this.selectedDayShift = "PM"
+    } else if (this.selectedDayShift == "PM" && deltaY == -1) {
+      this.selectedDayShift = "AM"
+    }
+    this.selectedTime.emit({ hour: this.selectedHour, minute: this.selectedMinute, dayShift: this.selectedDayShift })
   }
 }

@@ -11,5 +11,7 @@ import { TimepickerComponent } from '../../shared/components/timepicker/timepick
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
+  onChange(e: any) {
+    console.log(e)
+  }
 }

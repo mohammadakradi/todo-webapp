@@ -6,7 +6,6 @@
             </span>
         </div>
         <div
-            (change)="onChange($event)"
             (touchstart)="onTouchStart($event)"
             (touchend)="onTouchEnd($event)"
             class="selected-time"
@@ -27,7 +26,6 @@
             </span>
         </div>
         <div
-            (change)="onChange($event)"
             (touchstart)="onTouchStartMinute($event)"
             (touchend)="onTouchEndMinute($event)"
             class="selected-time"
@@ -37,6 +35,26 @@
         <div>
             <span class="unselected-time">
                 {{ selectedMinuteIndex + 1 == 12 ? (minutes[0] | displayTime) : minutes[selectedMinuteIndex + 1] | displayTime }}
+            </span>
+        </div>
+    </div>
+
+   <div class="day-shift">
+        <div>
+            <span class="unselected-time">
+                {{ selectedDayShift == "PM" ? "AM" : "--" }}
+            </span>
+        </div>
+        <div
+            (touchstart)="onTouchStartDayShift($event)"
+            (touchend)="onTouchEndDayShift($event)"
+            class="selected-time"
+        >
+            <span>{{ selectedDayShift }}</span>
+        </div>
+        <div>
+            <span class="unselected-time">
+                {{ selectedDayShift == "AM" ? "PM" : "--" }}
             </span>
         </div>
     </div>
