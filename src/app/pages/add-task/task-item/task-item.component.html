@@ -1,0 +1,10 @@
+<div class="task-item-container">
+    <label for="add-task">Add Task</label>
+    <input [(ngModel)]="taskName" type="text" id="add-task" placeholder="Title"/>
+    <input [(ngModel)]="taskDescription" type="text" placeholder="Description" class="description"/>
+    <div class="action-btns">
+        <span class="icon icon-timer" (click)="addDueDate()"></span>
+        <span class="icon icon-tag" (click)="addCategory()"></span>
+        <span class="icon icon-go" (click)="addTask()"></span>
+    </div>
+</div>

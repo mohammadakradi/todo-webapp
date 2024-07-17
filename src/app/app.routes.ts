@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
         path: 'home',
         loadComponent: () => import('../app/pages/home/home.component').then(c => c.HomeComponent)
     },
@@ -10,8 +15,7 @@ export const routes: Routes = [
         loadComponent: () => import('../app/pages/intro/intro.component').then(c => c.IntroComponent)
     },
     {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-    }
+        path: 'add-task',
+        loadComponent: () => import('../app/pages/add-task/add-task.component').then(c => c.AddTaskComponent)
+    },
 ];
