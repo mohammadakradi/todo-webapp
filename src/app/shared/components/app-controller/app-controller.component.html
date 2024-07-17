@@ -1,17 +1,28 @@
-<!-- <div class="controller"> -->
+<div class="controller">
+    <!-- home -->
+    <div class="controller-item home" [class.active]="isRouteActive('home')" (click)="navigateURL('home')" >
+        <span class="icon icon-home-page"></span>
+        <p>Home</p>
+    </div>
+    <!-- calendar -->
+    <div class="controller-item calendar" (click)="navigateURL('calendar')">
+        <span class="icon icon-calender"></span>
+        <p>Calendar</p>
+    </div>
+    <!-- add item -->
     <div class="controller-item">
-        <p>Index</p>
+        <div class="controller-add">
+            <button class="add-btn"><span>+</span></button>
+        </div>
     </div>
-    <div class="controller-item">
-        <!-- <p>Index</p> -->
+    <!-- focus -->
+    <div class="controller-item focus" (click)="navigateURL('focus')">
+        <span class="icon icon-focus"></span>
+        <p>Focus</p>
     </div>
-    <div class="controller-add">
-        <button class="add-btn">+</button>
+    <!-- profile -->
+    <div class="controller-item profile" (click)="navigateURL('profile')">
+        <span class="icon icon-profile"></span>
+        <p>Profile</p>
     </div>
-    <div class="controller-item">
-        <!-- <p>Index</p> -->
-    </div>
-    <div class="controller-item">
-        <p>Index</p>
-    </div>
-<!-- </div> -->
+</div>
