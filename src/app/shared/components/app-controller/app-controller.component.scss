@@ -15,14 +15,13 @@
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    // flex-grow: 1;
+    gap: 8px;
     width: 20%;
     height: 100%;
 
     & p{
         background-color: transparent;
         font-size: 12px;
-        padding: 8px;
     }
 }
 
@@ -64,4 +63,10 @@
     content: "";
     border-top-left-radius: 100dvw;
     box-shadow: 1px -8px 0 -2px #22223B;
+}
+
+.active{
+    & p, span{
+        color: #A7A7C9;
+    }
 }

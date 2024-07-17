@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-controller',
@@ -10,4 +11,12 @@ import { MatIconModule } from '@angular/material/icon'
 })
 export class AppControllerComponent {
 
+  constructor(private router: Router) { }
+  navigateURL(address: string) {
+    this.router.navigate([address]);
+  }
+
+  isRouteActive(route: string): boolean {
+    return this.router.url.includes(route);
+  }
 }
