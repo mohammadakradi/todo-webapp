@@ -1,0 +1,22 @@
+.picker-container {
+  position: relative;
+  width: 100%;
+}
+
+.picker-inner {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  max-height: 200px;
+}
+
+.picker-highlight {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: transparent;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  pointer-events: none;
+  z-index: 1;
+}

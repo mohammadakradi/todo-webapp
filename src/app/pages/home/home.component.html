@@ -1,1 +1,7 @@
-<app-timepicker (selectedTime)="onChange($event)"></app-timepicker>
+<app-picker
+  [optionGroups]="optionGroups"
+  [valueGroups]="valueGroups"
+  [itemHeight]="36"
+  [height]="216"
+  (onChange)="handleOnChange($event)"
+></app-picker>

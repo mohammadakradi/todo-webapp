@@ -1,0 +1,21 @@
+<div class="picker-container" [style.height.px]="height">
+  <div class="picker-inner">
+    @for(key of objectKeys(optionGroups); track key; let index = $index) {
+        <app-picker-column
+          [options]="optionGroups[key]"
+          [name]="key"
+          [value]="valueGroups[key]"
+          [itemHeight]="itemHeight"
+          [columnHeight]="height"
+          [valueHour]="valueHour"
+          (onChange)="onChange($event.name, $event.value)"
+          (changeHour)="changeHour($event)"
+        ></app-picker-column>
+    }
+    <div
+      class="picker-highlight"
+      [style.height.px]="itemHeight"
+      [style.marginTop.px]="-(itemHeight / 2)"
+    ></div>
+  </div>
+</div>
