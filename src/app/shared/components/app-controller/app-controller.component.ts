@@ -13,7 +13,7 @@ export class AppControllerComponent {
 
   constructor(private router: Router) { }
   navigateURL(address: string) {
-    this.router.navigate([address]);
+    this.router.navigateByUrl(address);
   }
 
   isRouteActive(route: string): boolean {
