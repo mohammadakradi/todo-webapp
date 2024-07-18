@@ -1,3 +1,10 @@
 <div class="add-task-container" appClickOutside (clickOutside)="onClickOutside()">
-    <app-task-item (taskItem)="getTaskItem($event)"></app-task-item>
+    @switch (activeSetTaskStep) {
+        @case ('task-item'){
+            <app-task-item (taskItem)="getTaskItem($event)" (dueDate)="addDueDate()"></app-task-item>
+        }
+        @case ('due-date'){
+            <app-due-date></app-due-date>
+        }
+    }
 </div>

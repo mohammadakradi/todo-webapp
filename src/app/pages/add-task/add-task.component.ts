@@ -18,6 +18,7 @@ import { ClickOutsideDirective } from '../../shared/directives/click-outside.dir
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
+  activeSetTaskStep: string = 'task-item';
   constructor(
     private router: Router
   ) { }
@@ -29,6 +30,10 @@ export class AddTaskComponent {
   onClickOutside() {
     console.log('Clicked outside of add-task-container');
     this.router.navigateByUrl('home')
+  }
+
+  addDueDate() {
+    this.activeSetTaskStep = 'due-date'
   }
 
 }

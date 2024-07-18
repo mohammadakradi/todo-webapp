@@ -1,0 +1,37 @@
+.time-picker{
+    display: flex;
+    background-color: #A7A7C9;
+    border-radius: 16px;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.start-time, .end-time{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &input{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        color: white;
+        &::placeholder{
+            color: #8B8B99;
+            font-size: smaller;
+        }
+        &:active, &:focus{
+            border: 1px solid #8B8B99;
+            outline: none;
+        }
+    }
+}
+
+.set-time-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px !important;
+}
+.time-label{
+    padding: 8px !important;
+}

@@ -1,18 +1,14 @@
 .date-picker{
-    padding: 16px 0;
     background-color: #494968;
-    position: absolute;
-    top: 10px;
-    width: 100dvw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 16px;
+    width: 100%;
 
     & span{
         padding: 8px !important;
-        margin-bottom: 16px !important;
         align-self: flex-start;
     }
 }
@@ -27,15 +23,23 @@
 ::ng-deep .mat-calendar{
     background-color: #A7A7C9;
     border-radius: 16px;
+
+    & span{
+        font-size: 14px !important;
+    }
 }
 
 ::ng-deep .mat-calendar-body-cell-content{
     color: white !important;
+    & span{
+        height: fit-content !important;
+    }
 }
 
 ::ng-deep .mat-calendar-header {
     display: flex;
     justify-content: center;
+    padding: 0 !important;
 }
 
 ::ng-deep .mat-calendar-previous-button {
@@ -54,3 +58,13 @@
     display: none;
     width: 0;
 }
+
+// Adjust calendar size
+::ng-deep .mat-calendar-body-label{
+    padding: 0 !important;
+    font-size: 0 !important;
+}
+
+::ng-deep button{
+        padding: 0 !important;
+    }

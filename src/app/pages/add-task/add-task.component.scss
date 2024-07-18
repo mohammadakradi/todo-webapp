@@ -10,11 +10,16 @@
     left: 0;
     background-color: #494968;
     z-index: 1000;
-    height: 35%;
+    height: max-content;
+    padding: 20px 0;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 
-    & app-task-item{
+    & app-task-item {
         width: calc(100% - 20px);
+    }
+
+    & app-due-date {
+        width: 100%;
     }
 }

@@ -14,15 +14,18 @@ export class TaskItemComponent {
   taskName: string = "";
   taskDescription: string = ""
   @Output() taskItem = new EventEmitter<{ name: string, description: string }>();
+  @Output() dueDate = new EventEmitter<void>();
 
-  addTask() {
+  addTask(e: Event) {
+    e.stopPropagation()
     this.taskItem.emit({ name: this.taskName, description: this.taskDescription })
   }
-  addCategory() {
-
+  addCategory(e: Event) {
+    e.stopPropagation()
   }
 
-  addDueDate() {
-
+  addDueDate(e: Event) {
+    e.stopPropagation()
+    this.dueDate.emit()
   }
 }
