@@ -22,7 +22,7 @@ export class AddTaskComponent {
   constructor(
     private router: Router
   ) { }
-  getTaskItem(taskItem: { name: string, description: string }) {
+  getTaskItem(taskItem: { taskName: string | null, taskDescription: string | null }) {
     console.log(taskItem)
     this.router.navigateByUrl('home')
   }

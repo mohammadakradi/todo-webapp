@@ -1,10 +1,14 @@
-<div class="task-item-container">
+<form [formGroup]="taskForm" (ngSubmit)="addTask($event)" class="task-item-container">
     <label for="add-task">Add Task</label>
-    <input [(ngModel)]="taskName" type="text" id="add-task" placeholder="Title"/>
-    <input [(ngModel)]="taskDescription" type="text" placeholder="Description" class="description"/>
+    <input formControlName="taskName" type="text" id="add-task" placeholder="Title"/>
+    @if (showError) {
+            <div class="error">Task Name is required</div>
+    }
+    <input formControlName="taskDescription" type="text" placeholder="Description" class="description"/>
     <div class="action-btns" (click)="$event.stopPropagation()">
         <span class="icon icon-timer" (click)="addDueDate($event)"></span>
         <span class="icon icon-tag" (click)="addCategory($event)"></span>
         <span class="icon icon-go" (click)="addTask($event)"></span>
     </div>
-</div>
+    <!-- <input type="submit"> -->
+</form>

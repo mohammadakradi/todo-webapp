@@ -1,24 +1,37 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task-item',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.scss'
 })
 export class TaskItemComponent {
-  taskName: string = "";
-  taskDescription: string = ""
-  @Output() taskItem = new EventEmitter<{ name: string, description: string }>();
+  taskForm = new FormGroup({
+    taskName: new FormControl('', Validators.required),
+    taskDescription: new FormControl('')
+  })
+  showError: boolean = false
+  @Output() taskItem = new EventEmitter<{ taskName: string | null, taskDescription: string | null }>();
   @Output() dueDate = new EventEmitter<void>();
 
   addTask(e: Event) {
     e.stopPropagation()
-    this.taskItem.emit({ name: this.taskName, description: this.taskDescription })
+    console.log(this.taskForm)
+    if (this.taskForm.invalid) {
+      this.showError = true;
+    } else {
+      this.taskItem.emit({
+        taskName: this.taskForm.value.taskName as string | null,
+        taskDescription: this.taskForm.value.taskDescription as string | null
+      });
+      this.showError = false;
+    }
   }
   addCategory(e: Event) {
     e.stopPropagation()

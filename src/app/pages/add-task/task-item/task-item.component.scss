@@ -51,3 +51,13 @@
         margin-right: 6px;
     }
 }
+
+.ng-invalid:not(form){
+    border-left: 2px solid #a94442 !important; /* red */
+}
+
+.error{
+    font-size: 14px;
+    font-style: italic;
+    color: #a94442;
+}
