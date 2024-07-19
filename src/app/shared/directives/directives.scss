@@ -1,4 +1,4 @@
-$btn-bg-color: #A7A7C9;
+$btn-bg-color: #22223B;
 
 button{
     padding: 10px 15px;
@@ -6,12 +6,15 @@ button{
     border: none;
     cursor: pointer;
     margin: 5px;
-    color: black;
+    color: white;
     // height: 3rem;
     // width: 80%;
+    width: 100px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 300;
     &:active{
         scale: 0.98;
     }
@@ -21,8 +24,8 @@ button{
     padding: 0;
     width: 62px;
     height: 62px;
-    background-color: $btn-bg-color;
-    border: 6px solid $btn-bg-color;
+    background-color: #A7A7C9;
+    border: 6px solid #A7A7C9;
     border-radius: 100%;
     font-size: larger;
     margin: 0;

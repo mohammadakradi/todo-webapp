@@ -30,8 +30,20 @@
 .set-time-container{
     display: flex;
     flex-direction: column;
-    margin-top: 16px !important;
+    width: 100%;
 }
 .time-label{
     padding: 8px !important;
+}
+
+.set-due-date-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    & app-mat-datepicker{
+        width: 100%;
+    }
 }

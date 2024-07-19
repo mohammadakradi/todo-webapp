@@ -36,4 +36,8 @@ export class AddTaskComponent {
     this.activeSetTaskStep = 'due-date'
   }
 
+  closeAddTask() {
+    this.router.navigateByUrl('home')
+  }
+
 }

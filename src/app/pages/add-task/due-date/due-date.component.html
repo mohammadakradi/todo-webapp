@@ -1,16 +1,17 @@
 <div class="set-due-date-container">
-    <app-mat-datepicker></app-mat-datepicker>
-    <div class="set-time-container">
-        <span class="time-label">Choose time</span>
-        <div class="time-picker">
-            <div class="start-time">
-                <span>Start time</span>
-                <input type="time">
-            </div>
-            <div class="end-time">
-                <span>End time</span>
-                <input type="time">
+        <app-mat-datepicker></app-mat-datepicker>
+        <div class="set-time-container">
+            <span class="time-label">Choose time</span>
+            <div class="time-picker">
+                <div class="start-time">
+                    <span>Start time</span>
+                    <input type="time" [(ngModel)]="startTime">
+                </div>
+                <div class="end-time">
+                    <span>End time</span>
+                    <input type="time" [(ngModel)]="endTime">
+                </div>
             </div>
         </div>
-    </div>
+    <button type="submit" class="button action-btn" (click)="setDueDate()">SAVE</button>
 </div>
