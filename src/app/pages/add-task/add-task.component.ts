@@ -23,13 +23,13 @@ export class AddTaskComponent {
     private router: Router
   ) { }
   getTaskItem(taskItem: { taskName: string | null, taskDescription: string | null }) {
-    console.log(taskItem)
-    this.router.navigateByUrl('home')
+    console.log(taskItem);
+    this.router.navigateByUrl('home');
   }
 
   onClickOutside() {
     console.log('Clicked outside of add-task-container');
-    this.router.navigateByUrl('home')
+    this.router.navigateByUrl('home');
   }
 
   addDueDate() {

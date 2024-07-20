@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDatepickerComponent } from '../../shared/components/mat-datepicker/mat-datepicker.component';
+import { MatDatepickerComponent } from '../add-task/due-date/mat-datepicker/mat-datepicker.component';
 
 @Component({
   selector: 'app-home',

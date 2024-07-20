@@ -1,0 +1,13 @@
+<div class="set-time-container">
+    <span class="time-label">Choose time</span>
+    <div class="time-picker">
+        <div class="start-time">
+            <span>Start time</span>
+            <input type="time" [(ngModel)]="startTimeVal" (ngModelChange)="sendStartTime($event)">
+        </div>
+        <div class="end-time">
+            <span>End time</span>
+            <input type="time" [(ngModel)]="endTimeVal" (ngModelChange)="sendEndTime($event)">
+        </div>
+    </div>
+</div>
