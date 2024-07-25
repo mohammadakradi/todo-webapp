@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, model, Output } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -14,5 +14,4 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 })
 export class MatDatepickerComponent {
   selected = model<Date | null>(null);
-
 }

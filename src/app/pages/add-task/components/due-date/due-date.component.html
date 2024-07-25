@@ -1,0 +1,5 @@
+<div class="set-due-date-container">
+        <app-mat-datepicker [(selected)]="dueDate.selectedDate"></app-mat-datepicker>
+        <app-timepicker (endTime)="setEndTime($event)" (startTime)="setStartTime($event)"></app-timepicker>
+    <button type="submit" class="button action-btn" (click)="setDueDate($event)">SAVE</button>
+</div>

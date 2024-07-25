@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TaskItemModel } from '../../models/task-model';
 
 @Component({
   selector: 'app-task-item',
@@ -17,12 +18,11 @@ export class TaskItemComponent {
     taskDescription: new FormControl('')
   })
   showError: boolean = false
-  @Output() taskItem = new EventEmitter<{ taskName: string | null, taskDescription: string | null }>();
+  @Output() taskItem = new EventEmitter<TaskItemModel>();
   @Output() dueDate = new EventEmitter<void>();
 
   addTask(e: Event) {
     e.stopPropagation()
-    console.log(this.taskForm)
     if (this.taskForm.invalid) {
       this.showError = true;
     } else {

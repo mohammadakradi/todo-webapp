@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { TaskItemComponent } from './task-item/task-item.component';
-import { DueDateComponent } from './due-date/due-date.component';
-import { CategoryComponent } from './category/category.component';
+import { TaskItemComponent } from './components/task-item/task-item.component';
+import { DueDateComponent } from './components/due-date/due-date.component';
+import { CategoryComponent } from './components/category/category.component';
 import { Router } from '@angular/router';
 import { ClickOutsideDirective } from '../../shared/directives/click-outside.directive';
+import { DueDateModel, TaskItemModel, TaskModel } from './models/task-model';
 
 @Component({
   selector: 'app-add-task',
@@ -19,16 +20,21 @@ import { ClickOutsideDirective } from '../../shared/directives/click-outside.dir
 })
 export class AddTaskComponent {
   activeSetTaskStep: string = 'task-item';
+  task: TaskModel = {
+    taskItem: null,
+    dueDate: null
+  };
   constructor(
     private router: Router
   ) { }
-  getTaskItem(taskItem: { taskName: string | null, taskDescription: string | null }) {
-    console.log(taskItem);
+  getTaskItem(taskItem: TaskItemModel) {
+    this.task.taskItem = taskItem
+    console.log(this.task)
     this.router.navigateByUrl('home');
   }
 
   onClickOutside() {
-    console.log('Clicked outside of add-task-container');
+    console.log("CLICKED OUTSIDE")
     this.router.navigateByUrl('home');
   }
 
@@ -38,6 +44,11 @@ export class AddTaskComponent {
 
   closeAddTask() {
     this.router.navigateByUrl('home')
+  }
+
+  setDueDate(selectedDueDate: DueDateModel) {
+    this.activeSetTaskStep = 'task-item'
+    this.task.dueDate = selectedDueDate
   }
 
 }

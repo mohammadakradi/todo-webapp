@@ -5,7 +5,7 @@
             <app-task-item (taskItem)="getTaskItem($event)" (dueDate)="addDueDate()"></app-task-item>
         }
         @case ('due-date'){
-            <app-due-date></app-due-date>
+            <app-due-date (selectedDueDate)="setDueDate($event)"></app-due-date>
         }
     }
 </div>
