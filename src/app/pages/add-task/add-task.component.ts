@@ -7,6 +7,7 @@ import { ClickOutsideDirective } from '../../shared/directives/click-outside.dir
 import { DueDateModel, TaskModel } from './models/task-model';
 import { TaskDataService } from './services/task-data.service';
 import { TaskData } from 'zone.js/lib/zone-impl';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-add-task',
@@ -24,7 +25,8 @@ export class AddTaskComponent {
   activeSetTaskStep: string = 'task-item';
   constructor(
     private router: Router,
-    private taskDataService: TaskDataService
+    private taskDataService: TaskDataService,
+    private _bottomSheetRef: MatBottomSheetRef<AddTaskComponent>
   ) {
   }
 
@@ -48,6 +50,11 @@ export class AddTaskComponent {
   previousStep(e: Event) {
     e.stopPropagation()
     this.activeSetTaskStep = 'task-item'
+  }
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
   }
 
 }
