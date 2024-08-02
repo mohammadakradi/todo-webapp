@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, model, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,15 +11,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './timepicker.component.scss'
 })
 export class TimepickerComponent {
-  startTimeVal: string = "00:00"
-  endTimeVal: string = "18:30"
-  @Output() startTime = new EventEmitter<string>();
-  @Output() endTime = new EventEmitter<string>();
-
-  sendStartTime(e: string) {
-    this.startTime.emit(e)
-  }
-  sendEndTime(e: string) {
-    this.endTime.emit(e)
-  }
+  startTime = model<string>("00:00");
+  endTime = model<string>("18:30");
 }

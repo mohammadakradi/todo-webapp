@@ -3,6 +3,8 @@ import { MatDatepickerComponent } from './components/mat-datepicker/mat-datepick
 import { FormsModule } from '@angular/forms';
 import { TimepickerComponent } from './components/timepicker/timepicker.component';
 import { DueDateModel } from '../../models/task-model';
+import { TaskDataService } from '../../services/task-data.service';
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-due-date',
@@ -17,22 +19,16 @@ import { DueDateModel } from '../../models/task-model';
 })
 export class DueDateComponent {
   @Output() selectedDueDate = new EventEmitter<DueDateModel>();
-  dueDate: DueDateModel = {
-    startTime: "00:00",
-    endTime: "18:30",
-    selectedDate: null
-  };
+  tmpDueDate: DueDateModel;
 
-  setEndTime(e: string) {
-    this.dueDate.endTime = e
-  }
-  setStartTime(e: string) {
-    this.dueDate.startTime = e
+  constructor(private taskDataService: TaskDataService) {
+    const currentDueDate = this.taskDataService.getTaskData().dueDate;
+    this.tmpDueDate = cloneDeep(currentDueDate) || { startTime: '00:00', endTime: '18:30', selectedDate: null };
   }
 
   setDueDate(e: Event) {
     e.stopPropagation()
-    this.selectedDueDate.emit(this.dueDate)
+    this.selectedDueDate.emit(this.tmpDueDate)
   }
 
 }

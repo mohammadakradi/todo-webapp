@@ -9,5 +9,4 @@ import { MatDatepickerComponent } from '../add-task/components/due-date/componen
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
 }

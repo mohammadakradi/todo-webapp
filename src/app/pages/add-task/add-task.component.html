@@ -1,10 +1,11 @@
 <div class="add-task-container" appClickOutside (clickOutside)="onClickOutside()">
-    <span class="icon icon-add close-btn" (click)="closeAddTask()"></span>
     @switch (activeSetTaskStep) {
         @case ('task-item'){
-            <app-task-item (taskItem)="getTaskItem($event)" (dueDate)="addDueDate()"></app-task-item>
+            <span class="icon icon-add close-btn" (click)="closeAddTask()"></span>
+            <app-task-item (dueDate)="addDueDate()"></app-task-item>
         }
         @case ('due-date'){
+            <span class="icon icon-down back-btn" (click)="previousStep($event)"></span>
             <app-due-date (selectedDueDate)="setDueDate($event)"></app-due-date>
         }
     }
