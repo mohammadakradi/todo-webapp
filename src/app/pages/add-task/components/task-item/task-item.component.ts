@@ -18,6 +18,7 @@ export class TaskItemComponent implements OnInit {
   showError: boolean = false;
   taskData: TaskModel;
   @Output() dueDate = new EventEmitter<void>();
+  @Output() setCategory = new EventEmitter<void>();
   @Output() submitTask = new EventEmitter<void>();
 
   constructor(
@@ -47,10 +48,8 @@ export class TaskItemComponent implements OnInit {
   addTask() {
     if (this.taskForm.invalid) {
       this.showError = true;
+    } else {
+      this.submitTask.emit();
     }
-    this.submitTask.emit();
-  }
-  addCategory() {
-    console.log('clicked')
   }
 }

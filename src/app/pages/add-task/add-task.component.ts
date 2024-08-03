@@ -3,7 +3,7 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { DueDateComponent } from './components/due-date/due-date.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ClickOutsideDirective } from '../../shared/directives/click-outside.directive';
-import { DueDateModel, TaskModel } from './models/task-model';
+import { TaskModel } from './models/task-model';
 import { TaskDataService } from './services/task-data.service';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 

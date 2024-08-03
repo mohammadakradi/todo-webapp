@@ -1,0 +1,15 @@
+.set-category-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .container-header{
+        margin: 6px;
+    }
+}
+
+.splitter{
+    border-top: 1px solid rgba($color: #7A797A, $alpha: 1);
+    width: calc(100% + 30px);
+    margin-left: -15px;
+}
