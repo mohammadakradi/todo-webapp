@@ -27,4 +27,8 @@ export class TaskDataService {
   getTaskData(): TaskModel {
     return this.taskData.value;
   }
+
+  clearTaskData() {
+    this.taskData.next({ taskItem: null, dueDate: null });
+  }
 }

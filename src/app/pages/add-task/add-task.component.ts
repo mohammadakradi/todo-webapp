@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { DueDateComponent } from './components/due-date/due-date.component';
 import { CategoryComponent } from './components/category/category.component';
-import { Router } from '@angular/router';
 import { ClickOutsideDirective } from '../../shared/directives/click-outside.directive';
 import { DueDateModel, TaskModel } from './models/task-model';
 import { TaskDataService } from './services/task-data.service';
-import { TaskData } from 'zone.js/lib/zone-impl';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
@@ -23,38 +21,24 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 })
 export class AddTaskComponent {
   activeSetTaskStep: string = 'task-item';
+  taskData: TaskModel | null = null;
   constructor(
-    private router: Router,
     private taskDataService: TaskDataService,
     private _bottomSheetRef: MatBottomSheetRef<AddTaskComponent>
   ) {
   }
 
-  onClickOutside() {
-    this.closeAddTask();
-  }
-
-  addDueDate() {
-    this.activeSetTaskStep = 'due-date'
-  }
-
-  closeAddTask() {
-    this.router.navigateByUrl('home')
-  }
-
-  setDueDate(selectedDueDate: DueDateModel) {
-    this.activeSetTaskStep = 'task-item'
-    this.taskDataService.updateDueDate(selectedDueDate);
-  }
-
-  previousStep(e: Event) {
-    e.stopPropagation()
-    this.activeSetTaskStep = 'task-item'
-  }
-
-  openLink(event: MouseEvent): void {
-    this._bottomSheetRef.dismiss();
+  closeAddTask(event: MouseEvent) {
     event.preventDefault();
+    this._bottomSheetRef.dismiss();
   }
 
+  submitTask() {
+    this.taskData = this.taskDataService.getTaskData();
+    console.log("Submitted Task: ", this.taskData);
+    this._bottomSheetRef.dismiss();
+    this._bottomSheetRef.afterDismissed().subscribe(() => {
+      this.taskDataService.clearTaskData();
+    })
+  }
 }

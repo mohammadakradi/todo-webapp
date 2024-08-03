@@ -1,14 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon'
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AddTaskComponent } from '../../../pages/add-task/add-task.component';
 
 
 @Component({
   selector: 'app-controller',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [],
   templateUrl: './app-controller.component.html',
   styleUrl: './app-controller.component.scss'
 })

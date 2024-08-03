@@ -1,28 +1,28 @@
 <div class="controller">
     <!-- home -->
-    <div class="controller-item home" [class.active]="isRouteActive('home')" (click)="navigateURL('home')" >
+    <button class="controller-item home" [class.active]="isRouteActive('home')" (click)="navigateURL('home')" >
         <span class="icon icon-home-page"></span>
         <p>Home</p>
-    </div>
+    </button>
     <!-- calendar -->
-    <div class="controller-item calendar" (click)="navigateURL('calendar')">
+    <button class="controller-item calendar" (click)="navigateURL('calendar')">
         <span class="icon icon-calender"></span>
         <p>Calendar</p>
-    </div>
+    </button>
     <!-- add item -->
-    <div class="controller-item">
+    <button class="controller-item">
         <div class="controller-add" (click)="openAddTask()">
             <button class="add-btn"><span class="icon icon-add"></span></button>
         </div>
-    </div>
+    </button>
     <!-- focus -->
-    <div class="controller-item focus" (click)="navigateURL('focus')">
+    <button class="controller-item focus" (click)="navigateURL('focus')">
         <span class="icon icon-focus"></span>
         <p>Focus</p>
-    </div>
+    </button>
     <!-- profile -->
-    <div class="controller-item profile" (click)="navigateURL('profile')">
+    <button class="controller-item profile" (click)="navigateURL('profile')">
         <span class="icon icon-profile"></span>
         <p>Profile</p>
-    </div>
+    </button>
 </div>

@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskItemModel, TaskModel } from '../../models/task-model';
 import { TaskDataService } from '../../services/task-data.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-item',
@@ -19,9 +18,9 @@ export class TaskItemComponent implements OnInit {
   showError: boolean = false;
   taskData: TaskModel;
   @Output() dueDate = new EventEmitter<void>();
+  @Output() submitTask = new EventEmitter<void>();
 
   constructor(
-    private router: Router,
     private taskDataService: TaskDataService
   ) {
     this.taskForm = new FormGroup({
@@ -45,26 +44,13 @@ export class TaskItemComponent implements OnInit {
       this.taskDataService.updateTaskItem(taskItem);
     });
   }
-  addTask(e: Event) {
-    e.stopPropagation();
+  addTask() {
     if (this.taskForm.invalid) {
       this.showError = true;
-    } else {
-      const taskItem: TaskItemModel = {
-        taskName: this.taskForm.value.taskName as string,
-        taskDescription: this.taskForm.value.taskDescription as string
-      };
-      this.taskDataService.updateTaskItem(taskItem);
-      this.showError = false;
     }
-    this.router.navigateByUrl('home');
+    this.submitTask.emit();
   }
-  addCategory(e: Event) {
-    e.stopPropagation()
-  }
-
-  addDueDate(e: Event) {
-    e.stopPropagation()
-    this.dueDate.emit()
+  addCategory() {
+    console.log('clicked')
   }
 }

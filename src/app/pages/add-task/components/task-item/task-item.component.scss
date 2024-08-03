@@ -35,25 +35,37 @@
     font-style: italic;
 }
 
+.icon-btn{
+    padding: 0;
+    height: fit-content;
+    width: fit-content;
+    background-color: transparent;
+    display: inline-flex;
+}
+
 .action-btns{
     display: flex;
+    align-items: center;
+    justify-content: end;
     gap: 20px;
     width: calc(100% - 6px);
     margin: 6px;
-    .icon{
-        font-weight: 800;
-    }
-    .icon-tag{
+    .tag{
         flex: 1;
+        justify-content: flex-start;
+        position: relative;
+        & span{
+            position: absolute; /* We did this to limit the clickable area */
+        }
     }
 
-    .icon-go{
+    .go{
         margin-right: 6px;
     }
 }
 
 .ng-invalid:not(form){
-    border-left: 2px solid #a94442 !important; /* red */
+    border-left: 2px solid #a94442 !important;  /* Invalid form */
 }
 
 .error{

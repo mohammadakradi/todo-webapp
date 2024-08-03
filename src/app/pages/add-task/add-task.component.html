@@ -1,12 +1,16 @@
 <!-- <div class="add-task-container"> -->
     @switch (activeSetTaskStep) {
         @case ('task-item'){
-            <span class="icon icon-add close-btn" (click)="closeAddTask()"></span>
-            <app-task-item (dueDate)="addDueDate()"></app-task-item>
+            <button class="icon-btn" (click)="closeAddTask($event)">
+                <span class="icon icon-add"></span>
+            </button>
+            <app-task-item (submitTask)="submitTask()" (dueDate)="activeSetTaskStep = 'due-date'"></app-task-item>
         }
         @case ('due-date'){
-            <span class="icon icon-down back-btn" (click)="previousStep($event)"></span>
-            <app-due-date (selectedDueDate)="setDueDate($event)"></app-due-date>
+            <button class="icon-btn" (click)="activeSetTaskStep = 'task-item'">
+                <span class="icon icon-down"></span>
+            </button>
+            <app-due-date (dueDataSelected)="activeSetTaskStep = 'task-item'"></app-due-date>
         }
     }
 <!-- </div> -->

@@ -18,7 +18,7 @@ import { cloneDeep } from 'lodash';
   styleUrl: './due-date.component.scss'
 })
 export class DueDateComponent {
-  @Output() selectedDueDate = new EventEmitter<DueDateModel>();
+  @Output() dueDataSelected = new EventEmitter<void>();
   tmpDueDate: DueDateModel;
 
   constructor(private taskDataService: TaskDataService) {
@@ -26,9 +26,9 @@ export class DueDateComponent {
     this.tmpDueDate = cloneDeep(currentDueDate) || { startTime: '00:00', endTime: '18:30', selectedDate: null };
   }
 
-  setDueDate(e: Event) {
-    e.stopPropagation()
-    this.selectedDueDate.emit(this.tmpDueDate)
+  setDueDate() {
+    this.taskDataService.updateDueDate(this.tmpDueDate);
+    this.dueDataSelected.emit()
   }
 
 }
