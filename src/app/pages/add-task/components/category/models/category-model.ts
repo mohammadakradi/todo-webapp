@@ -1,5 +1,7 @@
 export interface CategoryModel {
-    categoryName: string;
-    categoryColor: string;
-    categoryIcon: string;
+    id: number;
+    name: string;
+    background: string;
+    icon: string;
+    iconColor: string;
 }

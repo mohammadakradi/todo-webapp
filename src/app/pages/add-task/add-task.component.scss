@@ -1,6 +1,6 @@
 ::ng-deep .mat-bottom-sheet-container {
     background-color: #494968;
-    height: fit-content;
+    max-height: fit-content !important;
     color: white;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;

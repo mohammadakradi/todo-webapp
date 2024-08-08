@@ -2,11 +2,15 @@
     <div class="container-header">
         <span>Choose categories</span>
     </div>
-    <div class="category-list">
-        @for(categoryItem of categoryList; track categoryItem) {
-            <app-category-item [categoryItem]="categoryItem"></app-category-item>
-        }
-    </div>
-    <app-add-category></app-add-category>
-    <button class="button action-btn" (click)="setCategory()">SAVE</button>
+    @if(!showCreateCategory){
+        <div class="category-list">
+            @for(categoryItem of categoryList; track categoryItem) {
+                <app-category-item [categoryItem]="categoryItem" (onClick)="handleCategory($event)"></app-category-item>
+            }
+        </div>
+        <button class="button action-btn" (click)="setCategory()">SAVE</button>
+    }
+    @else {
+        <app-add-category></app-add-category>
+    }
 </div>

@@ -1,1 +1,7 @@
-<app-category-item [categoryItem]="addCategoryBtn"></app-category-item>
+<div>
+    <button class="category-item" [style]="{'background-color': background}">
+        <span class="icon icon-add-icon" [style]="{'color': iconColor}"></span>
+        <span class="category-name">{{name.length > 0 ? name : 'Your text'}}</span>
+    </button>
+    <input type="text" placeholder="Your Text" [(ngModel)]="name">
+</div>
