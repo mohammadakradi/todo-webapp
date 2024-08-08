@@ -9,7 +9,7 @@ import { CategoryModel } from '../../models/category-model';
   styleUrl: './category-item.component.scss'
 })
 export class CategoryItemComponent {
-  @Input() categoryData: CategoryModel | null = {
+  @Input() categoryItem: CategoryModel | null = {
     categoryName: 'University',
     categoryColor: 'red',
     categoryIcon: 'icon-studying'

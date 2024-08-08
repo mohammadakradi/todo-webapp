@@ -1,8 +1,12 @@
 <div class="set-category-container">
     <div class="container-header">
-        <p>Choose categories</p>
+        <span>Choose categories</span>
     </div>
-    <div class="splitter"></div>
-    <app-category-item></app-category-item>
+    <div class="category-list">
+        @for(categoryItem of categoryList; track categoryItem) {
+            <app-category-item [categoryItem]="categoryItem"></app-category-item>
+        }
+    </div>
+    <app-add-category></app-add-category>
     <button class="button action-btn" (click)="setCategory()">SAVE</button>
 </div>

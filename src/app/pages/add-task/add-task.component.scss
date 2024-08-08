@@ -6,10 +6,19 @@
     border-top-right-radius: 16px;
 }
 
+.add-task-container{
+    display: flex;
+    position: relative;
+
+    & app-task-item, app-due-date, app-category{
+        flex: 1;
+    }
+}
+
 .icon-btn{
 position: absolute;
-top: 2%;
-right: 5%;
+top: 0;
+right: 0;
 height: fit-content;
 width: fit-content;
 padding: 0;
