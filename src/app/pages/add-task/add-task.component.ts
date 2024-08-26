@@ -27,7 +27,6 @@ export class AddTaskComponent {
     private _bottomSheetRef: MatBottomSheetRef<AddTaskComponent>
   ) {
   }
-
   closeAddTask(event: MouseEvent) {
     event.preventDefault();
     this._bottomSheetRef.dismiss();
