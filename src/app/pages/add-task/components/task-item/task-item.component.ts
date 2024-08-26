@@ -19,6 +19,7 @@ export class TaskItemComponent implements OnInit {
   showError: boolean = false;
   taskData: TaskModel | null = null;
   dueDateIconColor: string = '';
+  categoryColor: string = '';
   @Output() dueDate = new EventEmitter<void>();
   @Output() setCategory = new EventEmitter<void>();
   @Output() submitTask = new EventEmitter<void>();
@@ -34,7 +35,7 @@ export class TaskItemComponent implements OnInit {
 
   ngOnInit() {
     this.taskData = this.taskDataService.getTaskData();
-    this.checkDueDate();
+    this.checkDueDateAndCategory();
     const taskItemData = this.taskData.taskItem;
     if (taskItemData) {
       this.taskForm.patchValue(taskItemData);
@@ -55,12 +56,16 @@ export class TaskItemComponent implements OnInit {
       this.submitTask.emit();
     }
   }
-
-  checkDueDate() {
+  checkDueDateAndCategory() {
     if (this.taskData?.dueDate) {
       this.dueDateIconColor = StatusColor.Selected;
     } else {
       this.dueDateIconColor = '';
+    }
+    if (this.taskData?.categories) {
+      this.categoryColor = StatusColor.Selected;
+    } else {
+      this.categoryColor = '';
     }
   }
 }
