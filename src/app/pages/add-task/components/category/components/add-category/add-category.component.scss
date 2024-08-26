@@ -5,3 +5,49 @@
     flex: 1;
     min-width: fit-content;
 }
+
+.add-category-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+
+    & input{
+        width: calc(100% - 32px);
+        padding: 8px 16px;
+        border: 1px solid #8B8B99;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #fff;
+        &::placeholder{
+            color: #8B8B99;
+            font-size: smaller;
+        }
+    }
+}
+
+.color-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    & input{
+        min-width: 30px;
+        padding: 2px;
+        border: 1px solid #8B8B99;
+        border-radius: 5px;
+        background-color: transparent;
+    }
+}

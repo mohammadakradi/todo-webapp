@@ -9,7 +9,8 @@ import { DueDateModel, TaskItemModel, TaskModel } from '../models/task-model';
 export class TaskDataService {
   private taskData = new BehaviorSubject<TaskModel>({
     taskItem: null,
-    dueDate: null
+    dueDate: null,
+    categories: null
   });
 
   taskData$ = this.taskData.asObservable();
@@ -24,11 +25,16 @@ export class TaskDataService {
     this.taskData.next({ ...currentData, dueDate });
   }
 
+  updateCategoryList(categories: number[]) {
+    const currentData = this.taskData.value;
+    this.taskData.next({ ...currentData, categories });
+  }
+
   getTaskData(): TaskModel {
     return this.taskData.value;
   }
 
   clearTaskData() {
-    this.taskData.next({ taskItem: null, dueDate: null });
+    this.taskData.next({ taskItem: null, dueDate: null, categories: null });
   }
 }

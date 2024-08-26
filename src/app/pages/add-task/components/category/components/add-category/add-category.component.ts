@@ -16,6 +16,17 @@ import { FormsModule } from '@angular/forms';
 export class AddCategoryComponent {
   name: string = '';
   background: string = '#9E9E9E';
-  iconColor: string = '#4D4D4D';
+  iconColor: string = '#ddd';
 
+  addCategory() {
+    const addCategoryItem: CategoryModel = {
+      id: -1,
+      name: this.name,
+      background: this.background,
+      icon: 'icon-add-category',
+      iconColor: this.iconColor
+    }
+
+
+  }
 }

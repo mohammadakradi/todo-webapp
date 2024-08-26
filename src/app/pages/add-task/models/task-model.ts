@@ -1,6 +1,7 @@
 export interface TaskModel {
     taskItem: TaskItemModel | null;
-    dueDate: DueDateModel | null
+    dueDate: DueDateModel | null;
+    categories: number[] | null;
 }
 
 export interface TaskItemModel {

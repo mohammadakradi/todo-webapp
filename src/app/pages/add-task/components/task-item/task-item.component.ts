@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskItemModel, TaskModel } from '../../models/task-model';
 import { TaskDataService } from '../../services/task-data.service';
+import { StatusColor } from '../../../../shared/enums/status-color';
 
 @Component({
   selector: 'app-task-item',
@@ -16,7 +17,8 @@ import { TaskDataService } from '../../services/task-data.service';
 export class TaskItemComponent implements OnInit {
   taskForm: FormGroup;
   showError: boolean = false;
-  taskData: TaskModel;
+  taskData: TaskModel | null = null;
+  dueDateIconColor: string = '';
   @Output() dueDate = new EventEmitter<void>();
   @Output() setCategory = new EventEmitter<void>();
   @Output() submitTask = new EventEmitter<void>();
@@ -28,11 +30,12 @@ export class TaskItemComponent implements OnInit {
       taskName: new FormControl('', Validators.required),
       taskDescription: new FormControl('')
     });
-    this.taskData = this.taskDataService.getTaskData();
   }
 
   ngOnInit() {
-    const taskItemData = this.taskDataService.getTaskData().taskItem;
+    this.taskData = this.taskDataService.getTaskData();
+    this.checkDueDate();
+    const taskItemData = this.taskData.taskItem;
     if (taskItemData) {
       this.taskForm.patchValue(taskItemData);
     }
@@ -50,6 +53,14 @@ export class TaskItemComponent implements OnInit {
       this.showError = true;
     } else {
       this.submitTask.emit();
+    }
+  }
+
+  checkDueDate() {
+    if (this.taskData?.dueDate) {
+      this.dueDateIconColor = StatusColor.Selected;
+    } else {
+      this.dueDateIconColor = '';
     }
   }
 }

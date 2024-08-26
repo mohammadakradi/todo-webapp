@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CategoryItemComponent } from './components/category-item/category-item.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { CategoryModel } from './models/category-model';
+import { CategoryServiceService } from './services/category-service.service';
+import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { TaskDataService } from '../../services/task-data.service';
 
 @Component({
   selector: 'app-category',
   standalone: true,
   imports: [
+    CommonModule,
     CategoryItemComponent,
     AddCategoryComponent
   ],
@@ -15,33 +20,22 @@ import { CategoryModel } from './models/category-model';
 })
 export class CategoryComponent {
   showCreateCategory: boolean = false;
-  categoryList: CategoryModel[] = [
-    {
-      id: 1,
-      name: 'University',
-      background: '#809CFF',
-      icon: 'icon-studying',
-      iconColor: '#0055A3'
-    },
-    {
-      id: 2,
-      name: 'Work',
-      background: '#FFCC80',
-      icon: 'icon-work',
-      iconColor: '#A36200'
-    },
-    {
-      id: 3,
-      name: 'Sport',
-      background: '#6E409A',
-      icon: 'icon-sport',
-      iconColor: '#422360'
-    }
-  ]
+  categoryList: CategoryModel[] = [];
+  selectedCategories: number[];
+  @Output() categoriesSelected = new EventEmitter<void>();
 
+  constructor(
+    private categoryService: CategoryServiceService,
+    private taskDataService: TaskDataService,
+  ) {
+    this.selectedCategories = this.taskDataService.getTaskData().categories || [];
+  }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    this.getCategories()
+  }
+
+  getCategories() {
+    let getData = new Subscription;
     const addCategoryItem: CategoryModel = {
       id: -1,
       name: 'Add Category',
@@ -49,13 +43,26 @@ export class CategoryComponent {
       icon: 'icon-add-category',
       iconColor: '#4D4D4D'
     };
-    this.categoryList.push(addCategoryItem);
+    getData = this.categoryService.getCategories().subscribe(resp => {
+      this.categoryList = resp;
+      this.categoryList.push(addCategoryItem);
+    });
   }
   handleCategory(category: CategoryModel | null) {
     if (category?.id === -1) {
       this.showCreateCategory = true
+    } else if (category) {
+      const index = this.selectedCategories.findIndex(id => id === category.id)
+      if (index === -1) {
+        this.selectedCategories.push(category.id)
+      } else {
+        this.selectedCategories = this.selectedCategories.filter(id => id != category.id)
+      }
     }
   }
 
-  setCategory() { }
+  setCategory() {
+    this.taskDataService.updateCategoryList(this.selectedCategories);
+    this.categoriesSelected.emit();
+  }
 }

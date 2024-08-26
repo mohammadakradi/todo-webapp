@@ -5,12 +5,18 @@
     @if(!showCreateCategory){
         <div class="category-list">
             @for(categoryItem of categoryList; track categoryItem) {
-                <app-category-item [categoryItem]="categoryItem" (onClick)="handleCategory($event)"></app-category-item>
+                    <app-category-item *ngIf="selectedCategories.includes(categoryItem.id); else default" [highlighted]="true" [categoryItem]="categoryItem" (onClick)="handleCategory($event)"></app-category-item>
+                    
+                    <ng-template #default>
+                        <app-category-item [categoryItem]="categoryItem" (onClick)="handleCategory($event)"></app-category-item>
+                    </ng-template>
             }
         </div>
-        <button class="button action-btn" (click)="setCategory()">SAVE</button>
+        <button class="button action-btn" [disabled]="selectedCategories.length === 0" (click)="setCategory()">SAVE</button>
     }
     @else {
         <app-add-category></app-add-category>
     }
 </div>
+
+

@@ -1,4 +1,4 @@
-<button (click)="onClick.emit(categoryItem)" class="category-item" [style]="{'background-color': categoryItem?.background}">
+<button (click)="onClick.emit(categoryItem)" class="category-item" [ngClass]="{'highlight': highlighted}" [style]="{'background-color': categoryItem?.background}">
     <span [class]="'icon ' + categoryItem?.icon" [style]="{'color': categoryItem?.iconColor}"></span>
     <span class="category-name">{{categoryItem?.name}}</span>
 </button>

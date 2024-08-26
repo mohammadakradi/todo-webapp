@@ -6,7 +6,7 @@
     }
     <input formControlName="taskDescription" type="text" placeholder="Description" class="description"/>
     <div class="action-btns">
-        <button class="icon-btn timer" (click)="dueDate.emit()">
+        <button class="icon-btn timer" (click)="dueDate.emit()" [style]="{'color': dueDateIconColor}">
             <span class="icon icon-timer"></span>
         </button>
         <button class="icon-btn tag" (click)="setCategory.emit()">

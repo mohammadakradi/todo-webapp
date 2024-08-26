@@ -1,7 +1,15 @@
-<div>
+<div class="add-category-container">
     <button class="category-item" [style]="{'background-color': background}">
         <span class="icon icon-add-icon" [style]="{'color': iconColor}"></span>
         <span class="category-name">{{name.length > 0 ? name : 'Your text'}}</span>
     </button>
-    <input type="text" placeholder="Your Text" [(ngModel)]="name">
+    <div class="input-container">
+        <label for="text-input">Choose the text:</label>
+        <input type="text" placeholder="Your Text" [(ngModel)]="name" id="text-input">
+    </div>
+    <div class="color-container">
+        <label for="color-input">Choose the background color:</label>
+        <input type="color" [(ngModel)]="background" id="color-input">
+    </div>
+    <button class="button action-btn" (click)="addCategory()">SAVE</button>
 </div>
