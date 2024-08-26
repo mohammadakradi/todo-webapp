@@ -29,6 +29,7 @@ export class AddTaskComponent {
   }
   closeAddTask(event: MouseEvent) {
     event.preventDefault();
+    this.taskDataService.clearTaskData();
     this._bottomSheetRef.dismiss();
   }
 
