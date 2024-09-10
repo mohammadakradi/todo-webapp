@@ -1,5 +1,12 @@
 <div class="home-container">
-    <img src="../../../assets/images/home-screen.svg" alt="home-screen"/>
-    <h1>What do you want to do today?</h1>
-    <p>Tap + to add your tasks</p>
+    @if(taskList.length<1){
+        <img src="../../../assets/images/home-screen.svg" alt="home-screen"/>
+        <h1>What do you want to do today?</h1>
+        <p>Tap + to add your tasks</p>
+    }
+    @else {
+        @for(task of taskList; track task){
+            <h1>{{task.taskItem?.taskName}}</h1>
+        }
+    }
 </div>

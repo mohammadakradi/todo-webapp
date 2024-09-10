@@ -6,6 +6,8 @@ import { ClickOutsideDirective } from '../../shared/directives/click-outside.dir
 import { TaskModel } from './models/task-model';
 import { TaskDataService } from './services/task-data.service';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { TasksService } from '../../shared/services/tasks.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-task',
@@ -22,9 +24,11 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 export class AddTaskComponent {
   activeSetTaskStep: string = 'task-item';
   taskData: TaskModel | null = null;
+  createTask = new Subscription();
   constructor(
     private taskDataService: TaskDataService,
-    private _bottomSheetRef: MatBottomSheetRef<AddTaskComponent>
+    private _bottomSheetRef: MatBottomSheetRef<AddTaskComponent>,
+    private taskService: TasksService
   ) {
   }
   closeAddTask(event: MouseEvent) {
@@ -35,10 +39,12 @@ export class AddTaskComponent {
 
   submitTask() {
     this.taskData = this.taskDataService.getTaskData();
-    console.log("Submitted Task: ", this.taskData);
-    this._bottomSheetRef.dismiss();
-    this._bottomSheetRef.afterDismissed().subscribe(() => {
-      this.taskDataService.clearTaskData();
+    this.createTask = this.taskService.createTask(this.taskData).subscribe(res => {
+      console.log(res)
+      this._bottomSheetRef.dismiss();
+      this._bottomSheetRef.afterDismissed().subscribe(() => {
+        this.taskDataService.clearTaskData();
+      })
     })
   }
 }
