@@ -23,6 +23,7 @@ export class TaskItemComponent implements OnInit {
   @Output() dueDate = new EventEmitter<void>();
   @Output() setCategory = new EventEmitter<void>();
   @Output() submitTask = new EventEmitter<void>();
+  @Output() backBtnCall = new EventEmitter<void>();
 
   constructor(
     private taskDataService: TaskDataService

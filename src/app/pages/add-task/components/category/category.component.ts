@@ -23,6 +23,7 @@ export class CategoryComponent {
   categoryList: CategoryModel[] = [];
   selectedCategories: number[];
   @Output() categoriesSelected = new EventEmitter<void>();
+  @Output() backBtnCall = new EventEmitter<void>();
 
   constructor(
     private categoryService: CategoryServiceService,
@@ -64,5 +65,14 @@ export class CategoryComponent {
   setCategory() {
     this.taskDataService.updateCategoryList(this.selectedCategories);
     this.categoriesSelected.emit();
+  }
+
+  handleBackBtnClick() {
+    if (this.showCreateCategory) {
+      this.showCreateCategory = false;
+      return
+    } else {
+      this.backBtnCall.emit()
+    }
   }
 }

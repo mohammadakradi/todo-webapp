@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { TaskModel } from '../add-task/models/task-model';
 import { TasksService } from '../../shared/services/tasks.service';
 import { Subscription } from 'rxjs';
+import { TaskCardComponent } from './components/task-card/task-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    TaskCardComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

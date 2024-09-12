@@ -1,8 +1,9 @@
 .home-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
     height: 80dvh;
+    margin-top: 20px;
 }

@@ -31,8 +31,8 @@ export class AddTaskComponent {
     private taskService: TasksService
   ) {
   }
-  closeAddTask(event: MouseEvent) {
-    event.preventDefault();
+  closeAddTask(event?: MouseEvent) {
+    event?.preventDefault();
     this.taskDataService.clearTaskData();
     this._bottomSheetRef.dismiss();
   }
@@ -40,7 +40,6 @@ export class AddTaskComponent {
   submitTask() {
     this.taskData = this.taskDataService.getTaskData();
     this.createTask = this.taskService.createTask(this.taskData).subscribe(res => {
-      console.log(res)
       this._bottomSheetRef.dismiss();
       this._bottomSheetRef.afterDismissed().subscribe(() => {
         this.taskDataService.clearTaskData();

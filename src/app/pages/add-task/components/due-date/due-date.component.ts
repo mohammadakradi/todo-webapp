@@ -19,6 +19,7 @@ import { cloneDeep } from 'lodash';
 })
 export class DueDateComponent {
   @Output() dueDataSelected = new EventEmitter<void>();
+  @Output() backBtnCall = new EventEmitter<void>();
   tmpDueDate: DueDateModel;
 
   constructor(private taskDataService: TaskDataService) {

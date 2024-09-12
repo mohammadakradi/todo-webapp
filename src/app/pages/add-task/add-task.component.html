@@ -1,22 +1,14 @@
 <div class="add-task-container">
     @switch (activeSetTaskStep) {
         @case ('task-item'){
-            <button class="icon-btn" (click)="closeAddTask($event)">
-                <span class="icon icon-add"></span>
-            </button>
-            <app-task-item (submitTask)="submitTask()" (dueDate)="activeSetTaskStep = 'due-date'" (setCategory)="activeSetTaskStep = 'category'"></app-task-item>
+            <app-task-item (submitTask)="submitTask()" (backBtnCall)="closeAddTask()" (dueDate)="activeSetTaskStep = 'due-date'" (setCategory)="activeSetTaskStep = 'category'"></app-task-item>
         }
         @case ('due-date'){
-            <button class="icon-btn" (click)="activeSetTaskStep = 'task-item'">
-                <span class="icon icon-down"></span>
-            </button>
-            <app-due-date (dueDataSelected)="activeSetTaskStep = 'task-item'"></app-due-date>
+            <app-due-date (dueDataSelected)="activeSetTaskStep = 'task-item'" (backBtnCall)="activeSetTaskStep = 'task-item'"></app-due-date>
         }
         @case ('category'){
-            <button class="icon-btn" (click)="activeSetTaskStep = 'task-item'">
-                <span class="icon icon-down"></span>
-            </button>
-            <app-category (categoriesSelected)="activeSetTaskStep = 'task-item'"></app-category>
+            
+            <app-category (categoriesSelected)="activeSetTaskStep = 'task-item'" (backBtnCall)="activeSetTaskStep = 'task-item'"></app-category>
         }
     }
 </div>

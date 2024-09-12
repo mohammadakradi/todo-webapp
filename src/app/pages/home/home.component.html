@@ -6,7 +6,7 @@
     }
     @else {
         @for(task of taskList; track task){
-            <h1>{{task.taskItem?.taskName}}</h1>
+            <app-task-card [task]="task"></app-task-card>
         }
     }
 </div>
