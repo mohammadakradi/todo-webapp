@@ -1,7 +1,10 @@
 <div class="set-due-date-container">
-    <button class="icon-btn" (click)="backBtnCall.emit()">
-        <span class="icon icon-down"></span>
-    </button>
+    <div class="task-item-header">
+        <button class="icon-btn" (click)="backBtnCall.emit()">
+            <span class="icon icon-down"></span>
+        </button>
+        <h1>Choose Time and Date</h1>
+    </div>
     <app-mat-datepicker [(selected)]="tmpDueDate.selectedDate"></app-mat-datepicker>
     <app-timepicker [(endTime)]="tmpDueDate.endTime" [(startTime)]="tmpDueDate.startTime"></app-timepicker>
     <button class="button action-btn" (click)="setDueDate()">SAVE</button>

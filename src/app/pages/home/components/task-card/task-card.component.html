@@ -1,4 +1,7 @@
 <div class="card">
+    <!-- <button>
+        delete
+    </button> -->
     <div class="checkbox-select">
         <input type="checkbox" class="custom-input">
     </div>
@@ -6,4 +9,15 @@
         <h1>{{task.taskItem?.taskName}}</h1>
         <p>{{task.dueDate?.endTime}} in {{task.dueDate?.selectedDate}}</p>
     </div>
+    <div class="chip-category">
+        <mat-chip>
+            <img
+            matChipAvatar
+            src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+            alt="Photo of a Shiba Inu"
+            />
+            Dog one
+        </mat-chip>
+    </div>
+    <!-- <button>edit</button> -->
 </div>

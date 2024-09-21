@@ -1,7 +1,7 @@
 .icon-btn{
-position: absolute;
-top: 0;
-right: 0;
+// position: absolute;
+// top: 0;
+// right: 0;
 height: fit-content;
 width: fit-content;
 padding: 0;
@@ -11,4 +11,25 @@ background-color: transparent;
 .icon-down{
     font-size: 12px;
     rotate: 90deg;
+}
+
+.task-item-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-direction: row-reverse;
+    width: calc(100% - 20px);
+    position: relative;
+    &::after{
+        content: '';
+        height: 1px;
+        background-color: #8B8B99;
+        width: calc(100dvw - 1px);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        margin-left: -15px;
+        margin-top: 5px;
+    }
 }

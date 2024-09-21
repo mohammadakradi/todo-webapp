@@ -1,9 +1,9 @@
 <div class="set-category-container">
-    <button class="icon-btn" (click)="handleBackBtnClick()">
-        <span class="icon icon-down"></span>
-    </button>
-    <div class="container-header">
-        <span>Choose categories</span>
+    <div class="task-item-header">
+        <button class="icon-btn" (click)="handleBackBtnClick()">
+            <span class="icon icon-down"></span>
+        </button>
+        <h1>Choose categories</h1>
     </div>
     @if(!showCreateCategory){
         <div class="category-list">
@@ -18,7 +18,7 @@
         <button class="button action-btn" [disabled]="selectedCategories.length === 0" (click)="setCategory()">SAVE</button>
     }
     @else {
-        <app-add-category></app-add-category>
+        <app-add-category (onCreateCategory)="[handleBackBtnClick(), getCategories()]"></app-add-category>
     }
 </div>
 

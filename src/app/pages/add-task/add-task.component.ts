@@ -8,6 +8,9 @@ import { TaskDataService } from './services/task-data.service';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { TasksService } from '../../shared/services/tasks.service';
 import { Subscription } from 'rxjs';
+import {
+  MatSnackBar
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-task',
@@ -16,7 +19,7 @@ import { Subscription } from 'rxjs';
     TaskItemComponent,
     DueDateComponent,
     CategoryComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
   ],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
@@ -28,7 +31,8 @@ export class AddTaskComponent {
   constructor(
     private taskDataService: TaskDataService,
     private _bottomSheetRef: MatBottomSheetRef<AddTaskComponent>,
-    private taskService: TasksService
+    private taskService: TasksService,
+    private _snackBar: MatSnackBar
   ) {
   }
   closeAddTask(event?: MouseEvent) {
@@ -40,10 +44,17 @@ export class AddTaskComponent {
   submitTask() {
     this.taskData = this.taskDataService.getTaskData();
     this.createTask = this.taskService.createTask(this.taskData).subscribe(res => {
+      let taskName = res.taskItem?.taskName
+      let message = 'Task ' + taskName + ' created successfully ;)'
+      this.openSnackBar(message, 'Cheers')
       this._bottomSheetRef.dismiss();
       this._bottomSheetRef.afterDismissed().subscribe(() => {
         this.taskDataService.clearTaskData();
       })
     })
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, { duration: 3500 });
   }
 }

@@ -1,8 +1,10 @@
 <form [formGroup]="taskForm" class="task-item-container">
-    <button class="icon-btn" (click)="backBtnCall.emit()">
-        <span class="icon icon-add"></span>
-    </button>
-    <label for="add-task">Add Task</label>
+    <div class="task-item-header">
+        <button class="icon-btn" (click)="backBtnCall.emit()">
+            <span class="icon icon-add"></span>
+        </button>
+        <h1>Add Task</h1>
+    </div>
     <input formControlName="taskName" type="text" id="add-task" placeholder="Title"/>
     @if (showError && taskForm.get('taskName')?.invalid) {
             <div class="error">Task Name is required</div>
