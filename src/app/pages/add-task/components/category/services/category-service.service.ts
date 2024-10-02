@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class CategoryServiceService {
 
   // private baseURL = 'assets/mock/categoryList.json';
-  private baseURL = 'http://192.168.1.148:8000/api/';
+  private baseURL = 'http://127.0.0.1:8000/api/';
 
   constructor(
     private http: HttpClient
